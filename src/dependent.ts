@@ -1,3 +1,5 @@
+import { dependencyFunc } from "./dependency";
+
 export const dependentFunc = (input: string): string => {
-  return `hello ${input}`;
+  return `dependent for ${input} - ${dependencyFunc(input)}`;
 };
