@@ -1,5 +1,5 @@
-import { dependentFunc } from "../src/dependent";
 import { dependencyFunc } from "../src/dependency";
+import { dependentFunc } from "../src/dependent";
 
 // mock the dependency
 jest.mock("../src/dependency", () => {
@@ -13,12 +13,7 @@ describe("modify mocked dependency", () => {
     expect(jest.isMockFunction(dependencyFunc)).toBe(true));
 
   it("should use modified mocked dependency", () => {
-    // const func = dependencyFunc["mockImplementation"];
-    // func.call(dependencyFunc, () => {
-    //   return "modified mock implementation";
-    // });
-
-    dependencyFunc.mockImplementation(() => {
+    (<jest.Mock>dependencyFunc).mockImplementation(() => {
       return "modified mock implementation";
     });
 
