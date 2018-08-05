@@ -9,11 +9,15 @@ jest.mock("../src/dependency", () => {
 });
 
 describe("modify mocked dependency", () => {
-  it("dependency has been mocked", () => {
-    expect(jest.isMockFunction(dependencyFunc)).toBeTruthy;
-  });
+  it("dependency has been mocked", () =>
+    expect(jest.isMockFunction(dependencyFunc)).toBe(true));
 
   it("should use modified mocked dependency", () => {
+    // const func = dependencyFunc["mockImplementation"];
+    // func.call(dependencyFunc, () => {
+    //   return "modified mock implementation";
+    // });
+
     dependencyFunc.mockImplementation(() => {
       return "modified mock implementation";
     });
