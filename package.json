@@ -7,7 +7,7 @@
     "test": "jest --coverage --verbose"
   },
   "dependencies": {
-    "hoek": "4.1"
+    "hoek": "6.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.12",
