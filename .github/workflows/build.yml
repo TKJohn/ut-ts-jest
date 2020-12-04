@@ -23,7 +23,12 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
+
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+  
     - name: install dependencies
       uses: Borales/actions-yarn@v2.3.0
       with:
