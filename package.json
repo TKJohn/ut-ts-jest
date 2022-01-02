@@ -6,7 +6,6 @@
   "scripts": {
     "test": "jest --coverage --verbose"
   },
-  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.5",
@@ -29,5 +28,6 @@
       "json",
       "node"
     ]
-  }
+  },
+  "packageManager": "yarn@3.1.1"
 }
