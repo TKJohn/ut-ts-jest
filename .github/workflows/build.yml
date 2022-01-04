@@ -24,18 +24,12 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: install dependencies
-      uses: Borales/actions-yarn@v2.3.0
+    - uses: actions/setup-node@v2
       with:
-        # Yarn command
-        cmd: install
-#         # NPM_AUTH_TOKEN
-#         auth-token: # optional
-#         # NPM_REGISTRY_URL
-#         registry-url: # optional
+        node-version: '16'
+    
+    - name: install dependencies
+      run: yarn ci
 
     - name: test
-      uses: Borales/actions-yarn@v2.3.0
-      with:
-        # Yarn command
-        cmd: test
+      run: yarn test
