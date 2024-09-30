@@ -19,17 +19,22 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v3
-    
-    - uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-    
-    - name: install dependencies
-      run: yarn install --frozen-lockfile
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: test
-      run: yarn test
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: test
+        run: pnpm test
